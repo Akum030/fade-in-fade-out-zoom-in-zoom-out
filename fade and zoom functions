@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <title>day7.2</title>
+<script type="text/javascript">
+     var id;
+      
+      document.getElementById("t1");
+      function  fadeout(){
+        clearInterval(id);
+        id= window.setInterval(lack,100);
+        
+      }
+      function lack(){
+       var  img=document.getElementById("im1");
+        var n=Number( window.getComputedStyle(img).getPropertyValue("opacity"));
+        
+      
+       
+          if(n>0){
+             
+              n=n-0.1;
+             
+              img.style.opacity=n;
+          }
+          else{
+              clearInterval(id);
+          }
+      }
+
+      function  fadein(){
+         clearInterval(id);
+        id= window.setInterval(increase,100);
+       
+         
+       }
+       function increase(){
+        var  img=document.getElementById("im1");
+         var n=Number( window.getComputedStyle(img).getPropertyValue("opacity"));
+        
+       
+        
+           if(n<1){
+               n=n+0.1;
+              img.style.opacity=n;
+           }
+           else{
+               clearInterval(id);
+           }
+       }
+</script>
+
+<body>
+    <br>
+    <h2 id="t1">Demonstration for increase and decrease the opacity of image</h2 >
+    
+    <button onclick="fadeout()">fade out</button>
+    <img id="im1" src="img.jpg" width="200" height="200"/>
+     <button onclick="fadein()">fade in</button>
+</body>
+
+<script >
+  var doc=20;
+  var width=300;
+ var id2;
+
+  function incre(){
+   
+    clearInterval(id2);
+    id2 = window.setInterval(inc,10);
+    
+  }
+  function inc(){
+      
+      if(width<1000)
+      {
+          width=doc+width;
+         document.getElementById("im2").style.width=width;
+      }
+      else{
+          clearInterval(id2);
+      }
+  }
+  
+  function decre(){
+     clearInterval(id2);
+     id2 = window.setInterval(dec,10);
+     
+   
+  }
+  function dec(){
+      
+      if(width>300)
+      {
+          width=width-doc;
+          document.getElementById("im2").style.width=width;
+      }
+      else{
+          clearInterval(id2);
+      }
+  }
+</script>
+
+<body>
+    <br>
+    <h2 id="t1">Demonstration on mouse pointer movement</h2 >
+    
+    
+    <img id="im2" src="img.jpg" width="300" height="300"  onmouseover="incre() " onmouseout="decre()" />
+     
+</body>
+</head>
+</html>
